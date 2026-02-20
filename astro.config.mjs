@@ -4,5 +4,6 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   integrations: [tailwind()],
   output: 'static',
-  site: 'https://example.com',
+  site: 'https://sonyx9.github.io',
+  base: '/aitodo-digital/',
 });
