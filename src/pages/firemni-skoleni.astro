@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const kurzy = [
+  { title: 'AI pro začátečníky', delka: '3 h', teaser: 'Od chaosu k první ušetřené hodině. Bez žargonu, jen praktické ukázky.', odnesete: ['Jak AI funguje a proč občas halucinuje', 'Výběr nástroje: ChatGPT vs. Claude vs. Gemini', 'První prompty pro každodenní rutinu'] },
+  { title: 'ChatGPT Masterclass', delka: '4 h', teaser: 'Ovládněte AI jako asistenta. Pokročilé promptování od e-mailů po strategické dokumenty.', odnesete: ['Techniky pro komplexní úkoly', 'Vlastní Custom GPTs na míru', 'Knihovna promptů do praxe'] },
+  { title: 'NotebookLM', delka: '3 h', teaser: 'Konec halucinací – AI pracuje jen s vašimi dokumenty. Smlouvy, směrnice, výzkumy s citacemi.', odnesete: ['Bezpečný datový hub', 'Extrakce z PDF a textů', 'Přesné odpovědi z podkladů'] },
+  { title: 'Prezentace za 15 minut', delka: '3 h', teaser: 'Od poznámek k profesionálním slidům. Gamma, Tome a jazykové modely v jednom workflow.', odnesete: ['Proces od myšlenky k designu', 'Nástroje pro rychlé slidy', 'Grafika přímo do prezentací'] },
+  { title: 'Copilot 365', delka: '4 h', teaser: 'AI přímo ve Wordu, Excelu a Teams. Zápisy ze schůzek, reporty a analýzy v přirozeném jazyce.', odnesete: ['Zápisy a shrnutí ze schůzek', 'Reporty a analýza v Excelu', 'Bezpečné použití u citlivých dat'] },
+  { title: 'Základy Vibecodingu', delka: '4 h', teaser: 'Tvořte nástroje bez psaní kódu. Cursor a AI – zadáte logiku, AI napíše kód.', odnesete: ['Vývojové prostředí s AI', 'Jak zadávat požadavky na kód', 'Váš první mini-nástroj'] },
+  { title: 'AI Grafika', delka: '4 h', teaser: 'Profi vizuály bez designéra. Midjourney, DALL-E – konzistentní styl napříč kampaní.', odnesete: ['Promptování obrazových modelů', 'Jednotný vizuální styl', 'Podklady pro marketing a sítě'] },
+  { title: 'AI Automatizace', delka: '4 h', teaser: 'Nechte rutinu strojům. Make.com, Zapier – mosty mezi e-maily, CRM a AI.', odnesete: ['Základy automatizačních platforem', 'Napojení AI na firemní nástroje', 'První fungující automatizace'] },
+];
+---
+
+<BaseLayout 
+  title="Firemní školení | AI workshopy pro firmy" 
+  description="Praktické AI workshopy pro firmy: od začátečníků po automatizaci. ChatGPT, NotebookLM, Copilot 365, prezentace, vibecoding, grafika. Školení na míru vašemu týmu."
+>
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-gray-900 focus:text-white focus:rounded-lg">
+    Přeskočit na hlavní obsah
+  </a>
+  <Header />
+
+  <main id="main-content" class="relative overflow-visible pt-16">
+    <!-- Pozadí: obrázek pod celou horní částí včetně sekce s kurzy (zesvětlený) -->
+    <div 
+      class="absolute left-0 right-0 top-0 z-0 w-full bg-cover bg-center"
+      style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); width: 100vw; min-height: 140vh; background-image: url('/hero-image.jpg');"
+      aria-hidden="true"
+    >
+      <!-- Bílý overlay – slabší zesvětlení, obrázek výrazněji prosvítá -->
+      <div 
+        class="absolute inset-0 pointer-events-none"
+        style="background: linear-gradient(to bottom, rgba(255,255,255,0.38) 0%, rgba(255,255,255,0.48) 40%, rgba(255,255,255,0.58) 100%);"
+      />
+    </div>
+
+    <!-- První sekce: hero text – průhledná vrstva, obrázek prosvítá -->
+    <section class="relative z-10 pt-28 pb-20 px-6 overflow-visible">
+      <div class="container mx-auto max-w-4xl text-center">
+        <p class="text-sm font-medium text-gray-500 uppercase tracking-wider mb-4">
+          Firemní školení
+        </p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          AI workshopy <span class="font-serif italic text-primary-500">na míru</span> vašemu týmu
+        </h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          Praktické kurzy od 3 do 4 hodin. Žádná suchá teorie – hands-on cvičení a okamžitě použitelné dovednosti.
+        </p>
+      </div>
+    </section>
+
+    <!-- Naše kurzy – průhledná vrstva, pouze karty jsou neprůhledné -->
+    <section class="relative z-10 -mt-24 pt-16 pb-16 px-6">
+      <div class="container mx-auto max-w-6xl relative z-10 pt-2">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8">Naše kurzy</h2>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
+          {kurzy.map((kurz, i) => (
+            <li class="flex">
+              <article 
+                class="group flex flex-col w-full rounded-xl border border-gray-200 bg-white p-4 shadow-sm hover:border-primary-200 hover:shadow-md transition-all"
+                id={`kurz-${i + 1}`}
+              >
+                <div class="flex items-start justify-between gap-2 mb-2">
+                  <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-600">
+                    {i + 1}
+                  </span>
+                  <span class="shrink-0 rounded-full bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600">
+                    {kurz.delka}
+                  </span>
+                </div>
+                <h3 class="text-base font-bold text-gray-900 leading-snug mb-2">
+                  {kurz.title}
+                </h3>
+                <p class="text-gray-600 text-sm leading-snug mb-3 line-clamp-2 flex-grow min-h-[2.5rem]">
+                  {kurz.teaser}
+                </p>
+                <details class="text-sm mt-auto">
+                  <summary class="cursor-pointer list-none font-medium text-primary-600 hover:text-primary-700 focus:outline-none [&::-webkit-details-marker]:hidden">
+                    <span class="inline-flex items-center gap-1">Co si odnesete <svg class="details-chevron w-3.5 h-3.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
+                  </summary>
+                  <ul class="mt-2 space-y-1 pl-1 border-t border-gray-100 pt-2">
+                    {kurz.odnesete.map((item) => (
+                      <li class="flex gap-2 text-gray-600 text-xs">
+                        <span class="shrink-0 mt-1.5 size-1 rounded-full bg-primary-400" aria-hidden="true" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              </article>
+            </li>
+          ))}
+        </ul>
+        <!-- CTA Poptat kurz (pod mřížkou) -->
+        <div class="mt-6 text-center">
+          <a 
+            href="/#kontakt"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary-500 text-white font-semibold hover:bg-primary-600 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2 shadow-md"
+          >
+            Poptat kurz
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Claim – průhledná vrstva, obrázek prosvítá -->
+    <section class="pt-12 pb-10 px-6 relative z-10">
+      <div class="container mx-auto max-w-6xl">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
+              Praktické AI dovednosti pro <span class="font-serif italic text-primary-500">reálnou</span> práci.
+            </h2>
+          </div>
+          <div class="space-y-6 text-lg text-gray-600 leading-relaxed">
+            <p>
+              Naše školení jsou určena pro týmy, které chtějí začít používat AI efektivně a bezpečně.
+              Zaměřujeme se na praktické dovednosti, které můžete aplikovat okamžitě.
+            </p>
+            <p>
+              Školení probíhá interaktivně, s důrazem na hands-on cvičení a reálné příklady z vašeho
+              oboru. Každý workshop je přizpůsoben potřebám vašeho týmu.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 Pilíře – průhledná vrstva, pouze karty (boxy) jsou neprůhledné -->
+    <section class="pt-10 pb-16 px-6 relative z-10">
+      <div class="container mx-auto max-w-6xl">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-gray-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mb-6">
+              <svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Školení na míru týmům</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Každé školení přizpůsobujeme konkrétním potřebám vašeho týmu a oboru.
+              Zaměřujeme se na praktické aplikace, které vám skutečně pomohou.
+            </p>
+          </div>
+          <div class="bg-gray-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mb-6">
+              <svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Bezpečnost a firemní data</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Důraz klademe na bezpečnost a ochranu vašich dat. Naučíme vás používat AI nástroje
+              tak, aby vaše firemní informace zůstaly v bezpečí.
+            </p>
+          </div>
+          <div class="bg-gray-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center mb-6">
+              <svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Okamžitá použitelnost</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Hands-on přístup znamená, že se učíte praxí. Po skončení školení budete schopni
+              okamžitě aplikovat nové dovednosti v každodenní práci.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gradient banner – jako na hlavní stránce -->
+    <div class="w-full overflow-x-hidden">
+      <section class="py-24 relative z-10" style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); width: 100vw;">
+        <div 
+          class="absolute inset-0 w-full h-full"
+          style="background: linear-gradient(to right, #ffb3a7 0%, #ffa8b5 5%, #ff9ec8 12%, #ff9dd0 18%, #f5a3d3 25%, #f0abfc 32%, #e4b3fc 40%, #d8b4fe 48%, #d1b8fe 55%, #c9bdfe 62%, #ddd6fe 70%, #e9d5ff 78%, #f3e8ff 85%, #faf5ff 92%, #fef7ff 96%, white 100%);"
+        ></div>
+        <div class="container mx-auto max-w-6xl px-6 relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p class="text-sm font-medium text-gray-800/90 uppercase tracking-wider mb-4">
+                Bez chaosu. Jen výsledky.
+              </p>
+              <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+                Chcete, aby AI pomáhala vašemu týmu <span class="font-serif italic text-gray-700">do 14 dnů</span>?
+              </h2>
+              <a 
+                href="/#kontakt"
+                class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white border-2 border-gray-300 text-gray-900 font-semibold hover:border-gray-400 transition-all focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 shadow-lg"
+              >
+                Poptat kurz
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+            <div class="hidden lg:block">
+              <div class="aspect-square max-w-sm rounded-3xl bg-white/30 backdrop-blur-md flex items-center justify-center border border-white/20">
+                <svg class="w-32 h-32 text-gray-700/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Důvěřují nám – reference -->
+    <section class="py-16 px-6 relative z-10">
+      <div class="container mx-auto max-w-6xl">
+        <p class="text-center text-sm font-medium text-gray-500 uppercase tracking-wider mb-8">
+          Důvěřují nám
+        </p>
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
+          <div class="px-6 py-3 bg-gray-100 rounded-full text-gray-400 font-semibold">Logo 1</div>
+          <div class="px-6 py-3 bg-gray-100 rounded-full text-gray-400 font-semibold">Logo 2</div>
+          <div class="px-6 py-3 bg-gray-100 rounded-full text-gray-400 font-semibold">Logo 3</div>
+          <div class="px-6 py-3 bg-gray-100 rounded-full text-gray-400 font-semibold">Logo 4</div>
+          <div class="px-6 py-3 bg-gray-100 rounded-full text-gray-400 font-semibold">Logo 5</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 px-6 relative z-10">
+      <div class="container mx-auto max-w-2xl text-center">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">
+          Chcete školení pro váš tým?
+        </h2>
+        <p class="text-gray-600 mb-8">
+          Kurzy můžeme zkombinovat nebo přizpůsobit vašim potřebám. Napište nám.
+        </p>
+        <a 
+          href="/#kontakt"
+          class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-primary-500 text-white font-semibold hover:bg-primary-600 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2 shadow-lg"
+        >
+          Poptat kurz
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  details[open] .details-chevron {
+    transform: rotate(180deg);
+  }
+</style>

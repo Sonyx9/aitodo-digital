@@ -1,0 +1,76 @@
+---
+const scrollToForm = () => {
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+};
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+  <nav class="container mx-auto px-6 py-4 flex items-center justify-between max-w-7xl">
+    <!-- Logo vlevo -->
+    <a href="/" class="text-xl font-bold text-gray-900 hover:text-gray-700 transition-colors" aria-label="Domů">
+      Aitodo.Digital
+    </a>
+    
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#skoleni" class="text-gray-700 hover:text-gray-900 transition-colors">Školení</a>
+      <a href="#sluzby" class="text-gray-700 hover:text-gray-900 transition-colors">Služby</a>
+      <a href="#reference" class="text-gray-700 hover:text-gray-900 transition-colors">Reference</a>
+      <a href="#blog" class="text-gray-700 hover:text-gray-900 transition-colors">Blog</a>
+      <a href="#o-nas" class="text-gray-700 hover:text-gray-900 transition-colors">O nás</a>
+      <a href="#kontakt" class="text-gray-700 hover:text-gray-900 transition-colors">Kontakt</a>
+    </div>
+    
+    <!-- CTA vpravo -->
+    <a 
+      href="/#kontakt"
+      class="px-6 py-2.5 rounded-full bg-primary-500 text-white font-medium hover:bg-primary-600 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2"
+    >
+      Poptat kurz
+    </a>
+    
+    <!-- Mobile Menu Button -->
+    <button 
+      id="mobile-menu-button"
+      class="md:hidden p-2 text-gray-700 hover:text-gray-900"
+      aria-label="Otevřít menu"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+    <div class="container mx-auto px-6 py-4 space-y-4">
+      <a href="#skoleni" class="block text-gray-700 hover:text-gray-900">Školení</a>
+      <a href="#sluzby" class="block text-gray-700 hover:text-gray-900">Služby</a>
+      <a href="#reference" class="block text-gray-700 hover:text-gray-900">Reference</a>
+      <a href="#blog" class="block text-gray-700 hover:text-gray-900">Blog</a>
+      <a href="#o-nas" class="block text-gray-700 hover:text-gray-900">O nás</a>
+      <a href="#kontakt" class="block text-gray-700 hover:text-gray-900">Kontakt</a>
+      <a 
+        href="/#kontakt"
+        class="block w-full text-center px-6 py-2.5 rounded-full bg-primary-500 text-white font-medium hover:bg-primary-600 transition-colors"
+      >
+        Poptat kurz
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+</script>
