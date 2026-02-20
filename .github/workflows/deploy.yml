@@ -25,9 +25,17 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Verify index.html
+        run: |
+          ls -la dist/
+          test -f dist/index.html && echo "OK: index.html exists" || (echo "ERROR: no index.html" && exit 1)
+
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          publish_branch: gh-pages
           force_orphan: true
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
