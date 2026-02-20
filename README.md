@@ -34,3 +34,7 @@ Texty jsou v `src/pages/index.astro` a v jednotlivých komponentách. Hledejte k
 ## Kde měnit loga
 
 Loga partnerů jsou v `src/pages/index.astro` v sekci "Trusted by". Nahraďte placeholder texty skutečnými logy.
+
+## GitHub Pages
+
+Po pushi na `main` workflow nasadí build do větve `gh-pages`. V repozitáři **Settings → Pages** zvol **Source: Deploy from a branch**, branch **gh-pages**, folder **/ (root)**. Web bude na `https://sonyx9.github.io/aitodo-digital/`.
