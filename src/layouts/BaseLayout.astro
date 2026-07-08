@@ -15,6 +15,7 @@ const {
 
 const siteUrl = "https://example.com"; // TODO: Změnit na skutečnou URL
 const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -50,8 +51,8 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
     <meta property="twitter:image" content={fullOgImage} />
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="apple-touch-icon" href={`${base}apple-touch-icon.png`} />
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

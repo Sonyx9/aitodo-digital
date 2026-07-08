@@ -11,106 +11,96 @@ import Footer from '../components/Footer.astro';
   <Header />
   
   <main id="main-content" class="pt-16">
-    <!-- Hero Section -->
-    <section class="relative pt-24 pb-40 overflow-x-hidden -mt-[100px]">
-      <!-- Text a tlačítka -->
-      <div class="container mx-auto max-w-5xl px-6 text-center relative z-10 mt-[50px]">
-        <!-- Eyebrow -->
-        <p class="text-sm font-medium text-gray-500 uppercase tracking-wider mb-8 animate-fade-in">
-          AI školení pro firmy
-        </p>
-        
-        <!-- H1 -->
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-10 leading-[1.1] animate-fade-in-delay">
-          Školíme AI tak, aby <span class="font-serif italic text-primary-500">zítra</span> šetřila čas.
-        </h1>
-        
-        <!-- Subtitle -->
-        <p class="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-delay-2">
-          Praktické workshopy, bezpečné školení týmů a konzultace na míru. 
-          Naučíme vás používat AI efektivně v každodenní práci.
-        </p>
-        
-        <!-- CTAs - podle reference: primární jako pill s borderem -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-delay-3">
-          <a 
-            href="/firemni-skoleni"
-            class="px-8 py-3.5 rounded-full bg-white border-2 border-gray-300 text-gray-900 font-semibold hover:border-gray-400 transition-all focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 inline-flex items-center gap-2 shadow-lg"
-          >
-            Firemní školení
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
-          <a 
-            href="#témata"
-            class="px-8 py-3.5 rounded-full bg-white border-2 border-gray-300 text-gray-900 font-semibold hover:border-gray-400 transition-all focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 shadow-lg"
-          >
-            Online školení
-          </a>
-          <a 
-            href="#webinare"
-            class="px-8 py-3.5 rounded-full bg-white border-2 border-gray-300 text-gray-900 font-semibold hover:border-gray-400 transition-all focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 shadow-lg"
-          >
-            Webináře
-          </a>
+    <!-- WRAPPER: hero + claim sdílejí jedno pozadí → žádný předěl -->
+    <div 
+      class="relative -mt-[100px] bg-gray-100"
+      style={`background-image: url(${import.meta.env.BASE_URL}hero-image.jpg); background-size: cover; background-position: top center;`}
+    >
+      <!-- Overlay nahoře: bílá → průhledná (čitelnost textu) -->
+      <div class="absolute inset-0 bg-gradient-to-b from-white/75 via-white/30 to-transparent pointer-events-none z-0" aria-hidden="true" />
+      <!-- Overlay dole: průhledná → gray-50 (napojení na sluzby sekci) -->
+      <div class="absolute bottom-0 left-0 right-0 h-56 pointer-events-none z-0" style="background: linear-gradient(to bottom, transparent, rgb(249,250,251));" aria-hidden="true" />
+
+      <!-- Hero Section -->
+      <section class="relative pt-20 md:pt-24 pb-8 sm:pb-10 md:pb-12 overflow-x-hidden">
+        <!-- Text a tlačítka -->
+        <div class="container mx-auto max-w-5xl px-6 text-center relative z-10 mt-[50px]">
+          <!-- Eyebrow -->
+          <p class="text-sm font-medium text-gray-500 uppercase tracking-wider mb-8 animate-fade-in">
+            AI školení pro firmy
+          </p>
+          
+          <!-- H1 -->
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-10 leading-[1.1] animate-fade-in-delay">
+            Školíme AI tak, aby <span class="font-serif italic text-primary-500">zítra</span> šetřila čas.
+          </h1>
+          
+          <!-- Subtitle -->
+          <p class="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-delay-2">
+            Praktické workshopy, bezpečné školení týmů a konzultace na míru. 
+            Naučíme vás používat AI efektivně v každodenní práci.
+          </p>
+          
+          <!-- CTAs – dvě tlačítka -->
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-delay-3">
+            <a 
+              href="/firemni-skoleni"
+              class="px-8 py-3.5 rounded-full bg-white border-2 border-gray-300 text-gray-900 font-semibold hover:border-gray-400 transition-all focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 inline-flex items-center gap-2 shadow-lg"
+            >
+              Firemní školení
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a 
+              href="#témata"
+              class="px-8 py-3.5 rounded-full bg-white border-2 border-gray-300 text-gray-900 font-semibold hover:border-gray-400 transition-all focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 shadow-lg"
+            >
+              Pro jednotlivce
+            </a>
+          </div>
         </div>
-      </div>
-      
-      <!-- Hero obrázek s videem na něm -->
-      <div class="-mt-[120px] w-full overflow-x-hidden">
-        <div class="relative" style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); width: 100vw;">
-          <div class="aspect-[21/9] relative overflow-hidden">
-            <img 
-              src="/hero-image.jpg" 
-              alt="AI školení" 
-              class="w-full h-full object-cover object-center"
-              loading="eager"
-            />
-            <!-- Video na obrázku -->
-            <div class="absolute inset-0 flex items-center justify-center p-4 md:p-8">
-              <div class="relative w-full max-w-4xl aspect-video rounded-xl overflow-hidden shadow-2xl ring-2 ring-white/30">
-                <iframe
-                  src="https://www.youtube.com/embed/hF-UgYTRVqg?si=cnku3vvHKV2Tmyxh"
-                  title="YouTube video player"
-                  class="absolute inset-0 w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                />
-              </div>
+        
+        <!-- Video -->
+        <div class="mt-4 sm:mt-6 md:mt-8 w-full overflow-x-hidden relative z-10">
+          <div class="container mx-auto max-w-4xl px-4 sm:px-6">
+            <div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl ring-2 ring-white/30">
+              <iframe
+                src="https://www.youtube.com/embed/hF-UgYTRVqg?si=cnku3vvHKV2Tmyxh"
+                title="YouTube video player"
+                class="absolute inset-0 w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              />
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Typografický Claim Section -->
-    <section id="skoleni" class="py-32 px-6 bg-transparent -mt-[350px] relative z-10">
-      <!-- Gradient overlay pro plynulý přechod z hero -->
-      <div class="absolute top-0 left-0 right-0 h-32 pointer-events-none" style="background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.6) 100%);"></div>
-      <!-- Gradient overlay pro plynulý přechod k další sekci -->
-      <div class="absolute bottom-0 left-0 right-0 h-40 pointer-events-none" style="background: linear-gradient(to top, rgba(249,250,251,1) 0%, rgba(249,250,251,0.8) 50%, transparent 100%);"></div>
-      <div class="container mx-auto max-w-6xl relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div>
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-8">
-              Praktické AI dovednosti pro <span class="font-serif italic text-primary-500">reálnou</span> práci.
-            </h2>
-          </div>
-          <div class="space-y-6 text-lg text-gray-600 leading-relaxed">
-            <p>
-              Naše školení jsou určena pro týmy, které chtějí začít používat AI efektivně a bezpečně. 
-              Zaměřujeme se na praktické dovednosti, které můžete aplikovat okamžitě.
-            </p>
-            <p>
-              Školení probíhá interaktivně, s důrazem na hands-on cvičení a reálné příklady z vašeho 
-              oboru. Každý workshop je přizpůsoben potřebám vašeho týmu.
-            </p>
+      <!-- Claim Section – průhledná, sdílí pozadí s hero -->
+      <section id="skoleni" class="relative py-20 md:py-28 px-6 z-10">
+        <div class="container mx-auto max-w-6xl">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div>
+              <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-8">
+                Praktické AI dovednosti pro <span class="font-serif italic text-primary-500">reálnou</span> práci.
+              </h2>
+            </div>
+            <div class="space-y-6 text-lg text-gray-600 leading-relaxed">
+              <p>
+                Naše školení jsou určena pro týmy, které chtějí začít používat AI efektivně a bezpečně. 
+                Zaměřujeme se na praktické dovednosti, které můžete aplikovat okamžitě.
+              </p>
+              <p>
+                Školení probíhá interaktivně, s důrazem na hands-on cvičení a reálné příklady z vašeho 
+                oboru. Každý workshop je přizpůsoben potřebám vašeho týmu.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <!-- 3 Pilíře / Benefity -->
     <section id="sluzby" class="py-32 px-6 bg-gray-50 relative">
@@ -181,13 +171,13 @@ import Footer from '../components/Footer.astro';
               Bez chaosu. Jen výsledky.
             </p>
             <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-10 leading-tight">
-              Chcete, aby AI pomáhala vašemu týmu <span class="font-serif italic text-gray-700">do 14 dnů</span>?
+              Chcete, aby Vám AI pomáhala <span class="font-serif italic text-gray-700">do 14 dnů</span>?
             </h2>
             <a 
               href="#kontakt"
               class="inline-block px-8 py-4 rounded-full bg-white border-2 border-gray-300 text-gray-900 font-semibold hover:border-gray-400 transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 shadow-lg"
             >
-              Rezervovat termín
+              Přidejte se
             </a>
           </div>
           <div class="hidden lg:block">
@@ -205,36 +195,183 @@ import Footer from '../components/Footer.astro';
       </section>
     </div>
 
-    <!-- Trusted By -->
-    <section id="reference" class="py-16 px-6 bg-white relative">
-      <!-- Gradient overlay pro plynulý přechod z předchozí sekce -->
-      <div class="absolute top-0 left-0 right-0 h-32 pointer-events-none" style="background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,1) 100%);"></div>
-      <!-- Gradient overlay pro plynulý přechod k další sekci -->
-      <div class="absolute bottom-0 left-0 right-0 h-40 pointer-events-none" style="background: linear-gradient(to top, rgba(249,250,251,1) 0%, rgba(249,250,251,0.8) 50%, transparent 100%);"></div>
+    <!-- Reference – vylepšená grafika -->
+    <section id="reference" class="py-24 px-6 bg-gray-50/80 relative overflow-hidden">
+      <div class="absolute top-0 left-0 right-0 h-32 pointer-events-none" style="background: linear-gradient(to bottom, rgba(255,255,255,0.5) 0%, rgba(249,250,251,0.98) 100%);"></div>
       <div class="container mx-auto max-w-6xl relative z-10">
-        <p class="text-center text-sm font-medium text-gray-500 uppercase tracking-wider mb-8">
-          Důvěřují nám
-        </p>
-        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
-          <!-- TODO: Nahradit placeholder logy skutečnými logy partnerů -->
-          <div class="px-6 py-3 bg-gray-100 rounded-full text-gray-400 font-semibold">Logo 1</div>
-          <div class="px-6 py-3 bg-gray-100 rounded-full text-gray-400 font-semibold">Logo 2</div>
-          <div class="px-6 py-3 bg-gray-100 rounded-full text-gray-400 font-semibold">Logo 3</div>
-          <div class="px-6 py-3 bg-gray-100 rounded-full text-gray-400 font-semibold">Logo 4</div>
-          <div class="px-6 py-3 bg-gray-100 rounded-full text-gray-400 font-semibold">Logo 5</div>
+        <div class="text-left mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Napsali o školení</h2>
+          <div class="w-14 h-1 rounded-full mt-3 ref-accent-bar"></div>
         </div>
+
+        <!-- Rotující reference – dva hlavní bloky vedle sebe (stejný styl jako malé karty) -->
+        <div class="mb-14 relative pl-2">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <article id="hero-ref-box-1" class="group rounded-2xl p-6 shadow-md min-h-[180px] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 ref-small-card relative">
+              <p id="hero-ref-quote-1" class="text-gray-800 text-xl md:text-2xl leading-relaxed font-medium mb-5 text-left transition-all duration-500">„Během 16 hodin se podařilo změnit můj mindset týkající se AI.“</p>
+              <div class="h-1 w-10 rounded-full mb-3 ref-small-card-line" style="background-color: #F05D4A;"></div>
+              <div class="flex items-center justify-between gap-3">
+                <div>
+                  <p id="hero-ref-company-1" class="font-semibold text-gray-900 transition-opacity duration-300">FESTOOL</p>
+                  <p id="hero-ref-desc-1" class="text-sm text-gray-500 mt-0.5 transition-opacity duration-300">Výroba nářadí</p>
+                </div>
+                <div class="h-8 flex items-center justify-center bg-gray-100 rounded border border-gray-200 shrink-0 text-gray-400 text-xs px-3 min-w-[5rem]">Logo</div>
+              </div>
+            </article>
+            <article id="hero-ref-box-2" class="group rounded-2xl p-6 shadow-md min-h-[180px] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 ref-small-card relative">
+              <p id="hero-ref-quote-2" class="text-gray-800 text-xl md:text-2xl leading-relaxed font-medium mb-5 text-left transition-all duration-500">„Radek je boží. :)“</p>
+              <div class="h-1 w-10 rounded-full mb-3 ref-small-card-line" style="background-color: #F05D4A;"></div>
+              <div class="flex items-center justify-between gap-3">
+                <div>
+                  <p id="hero-ref-company-2" class="font-semibold text-gray-900 transition-opacity duration-300">BARENTZ</p>
+                  <p id="hero-ref-desc-2" class="text-sm text-gray-500 mt-0.5 transition-opacity duration-300">Distribuce surovin</p>
+                </div>
+                <div class="h-8 flex items-center justify-center bg-gray-100 rounded border border-gray-200 shrink-0 text-gray-400 text-xs px-3 min-w-[5rem]">Logo</div>
+              </div>
+            </article>
+          </div>
+          <!-- Šipky -->
+          <button type="button" id="hero-ref-prev" class="absolute left-0 top-1/2 -translate-y-1/2 w-11 h-11 -ml-1 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center text-gray-500 hover:shadow-lg transition-all z-10 ref-arrow-hover" aria-label="Předchozí reference">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <button type="button" id="hero-ref-next" class="absolute right-0 top-1/2 -translate-y-1/2 w-11 h-11 -mr-1 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center text-gray-500 hover:shadow-lg transition-all z-10 ref-arrow-hover" aria-label="Další reference">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+          <!-- Tečky skryté -->
+          <div id="hero-ref-dots" class="hidden flex justify-start gap-2.5 mt-5 flex-wrap" aria-hidden="true"></div>
+        </div>
+        <script is:inline>
+          (function(){
+            var refs = [
+              { quote: 'Během 16 hodin se podařilo změnit můj mindset týkající se AI.', company: 'FESTOOL', desc: 'Výroba nářadí' },
+              { quote: 'Radek je boží. :)', company: 'BARENTZ', desc: 'Distribuce surovin' },
+              { quote: 'Nejlepší školení ze všech absolvovaných. Lektor skvělý a hodně praktických ukázek.', company: 'České dráhy', desc: 'Ekonomické oddělení' },
+              { quote: 'Naprostá spokojenost. Vše bylo srozumitelné, praktické a dobře vysvětlené.', company: 'České dráhy', desc: 'Ekonomické oddělení' },
+              { quote: 'Musím říct, že jsem se AI doposud bránil, ale s vaším vysvětlením mi to otevřelo oči.', company: 'INOVAN CZ', desc: 'Výroba komponentů' },
+              { quote: 'V Tennecu jsem už 10 let, toto školení řadím do top 3.', company: 'TENNECO CA', desc: 'Automotive' },
+              { quote: 'Za mě – takto by mělo školení vypadat. Pane Koulovi VELKÉ DÍKY.', company: 'České dráhy', desc: 'Ekonomické oddělení' }
+            ];
+            var idx = 0;
+            function getEl(id) { return document.getElementById(id); }
+            var q1 = getEl('hero-ref-quote-1'), c1 = getEl('hero-ref-company-1'), d1 = getEl('hero-ref-desc-1');
+            var q2 = getEl('hero-ref-quote-2'), c2 = getEl('hero-ref-company-2'), d2 = getEl('hero-ref-desc-2');
+            var prevBtn = getEl('hero-ref-prev'), nextBtn = getEl('hero-ref-next');
+            if (!q1 || !c1 || !d1 || !q2 || !c2 || !d2) return;
+            function fillBox(quoteEl, companyEl, descEl, r, animate) {
+              if (animate) {
+                quoteEl.style.opacity = '0';
+                quoteEl.style.transform = 'translateY(8px)';
+                companyEl.style.opacity = '0';
+                descEl.style.opacity = '0';
+              }
+              setTimeout(function(){
+                quoteEl.textContent = '\u201E' + r.quote + '\u201C';
+                companyEl.textContent = r.company;
+                descEl.textContent = r.desc;
+                if (animate) {
+                  quoteEl.style.opacity = '1';
+                  quoteEl.style.transform = 'translateY(0)';
+                  companyEl.style.opacity = '1';
+                  descEl.style.opacity = '1';
+                }
+              }, animate ? 150 : 0);
+            }
+            function show(animate) {
+              var r1 = refs[idx % refs.length];
+              var r2 = refs[(idx + 1) % refs.length];
+              fillBox(q1, c1, d1, r1, animate);
+              fillBox(q2, c2, d2, r2, animate);
+            }
+            function goNext() { idx = (idx + 2) % refs.length; show(true); }
+            function goPrev() { idx = (idx - 2 + refs.length) % refs.length; show(true); }
+            if (prevBtn) prevBtn.addEventListener('click', function() { goPrev(); });
+            if (nextBtn) nextBtn.addEventListener('click', function() { goNext(); });
+            show(false);
+            setInterval(goNext, 4000);
+          })();
+        </script>
+
+        <!-- Tři karty ve stylu z obrázku -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
+          <div id="ref-card-1" class="group rounded-2xl p-6 shadow-md min-h-[180px] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 ref-small-card relative">
+            <p id="ref-card-1-quote" class="text-gray-700 text-sm leading-relaxed mb-5 text-left"></p>
+            <div class="h-0.5 w-10 rounded-full ref-small-card-line mb-3"></div>
+            <div class="flex items-center justify-between gap-3">
+              <div>
+                <p id="ref-card-1-company" class="font-semibold text-gray-900 text-sm"></p>
+                <p id="ref-card-1-desc" class="text-xs text-gray-600 mt-0.5"></p>
+              </div>
+              <div id="ref-card-1-logo" class="h-8 flex items-center justify-center bg-gray-100 rounded border border-gray-200 shrink-0 text-gray-400 text-xs px-3 min-w-[5rem]">Logo</div>
+            </div>
+          </div>
+          <div id="ref-card-2" class="group rounded-2xl p-6 shadow-md min-h-[180px] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 ref-small-card relative">
+            <p id="ref-card-2-quote" class="text-gray-700 text-sm leading-relaxed mb-5 text-left"></p>
+            <div class="h-0.5 w-10 rounded-full ref-small-card-line mb-3"></div>
+            <div class="flex items-center justify-between gap-3">
+              <div>
+                <p id="ref-card-2-company" class="font-semibold text-gray-900 text-sm"></p>
+                <p id="ref-card-2-desc" class="text-xs text-gray-600 mt-0.5"></p>
+              </div>
+              <div id="ref-card-2-logo" class="h-8 flex items-center justify-center bg-gray-100 rounded border border-gray-200 shrink-0 text-gray-400 text-xs px-3 min-w-[5rem]">Logo</div>
+            </div>
+          </div>
+          <div id="ref-card-3" class="group rounded-2xl p-6 shadow-md min-h-[180px] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 ref-small-card relative">
+            <p id="ref-card-3-quote" class="text-gray-700 text-sm leading-relaxed mb-5 text-left"></p>
+            <div class="h-0.5 w-10 rounded-full ref-small-card-line mb-3"></div>
+            <div class="flex items-center justify-between gap-3">
+              <div>
+                <p id="ref-card-3-company" class="font-semibold text-gray-900 text-sm"></p>
+                <p id="ref-card-3-desc" class="text-xs text-gray-600 mt-0.5"></p>
+              </div>
+              <div id="ref-card-3-logo" class="h-8 flex items-center justify-center bg-gray-100 rounded border border-gray-200 shrink-0 text-gray-400 text-xs px-3 min-w-[5rem]">Logo</div>
+            </div>
+          </div>
+        </div>
+        <script is:inline>
+          (function(){
+            var refs = [
+              { quote: 'Během 16 hodin se podařilo změnit můj mindset týkající se AI.', company: 'FESTOOL', desc: 'Výroba nářadí' },
+              { quote: 'Radek je boží. :)', company: 'BARENTZ', desc: 'Distribuce surovin' },
+              { quote: 'Nejlepší školení ze všech absolvovaných. Lektor skvělý a hodně praktických ukázek.', company: 'České dráhy', desc: 'Ekonomické oddělení' },
+              { quote: 'Naprostá spokojenost. Vše bylo srozumitelné, praktické a dobře vysvětlené.', company: 'České dráhy', desc: 'Ekonomické oddělení' },
+              { quote: 'Musím říct, že jsem se AI doposud bránil, ale s vaším vysvětlením mi to otevřelo oči.', company: 'INOVAN CZ', desc: 'Výroba komponentů' },
+              { quote: 'V Tennecu jsem už 10 let, toto školení řadím do top 3.', company: 'TENNECO CA', desc: 'Automotive' },
+              { quote: 'Za mě – takto by mělo školení vypadat. Pane Koulovi VELKÉ DÍKY.', company: 'České dráhy', desc: 'Ekonomické oddělení' }
+            ];
+            var offsets = [0, 2, 4];
+            function fillCard(n, ref) {
+              var q = document.getElementById('ref-card-' + n + '-quote');
+              var c = document.getElementById('ref-card-' + n + '-company');
+              var d = document.getElementById('ref-card-' + n + '-desc');
+              if (q && c && d) { q.textContent = '\u201E' + ref.quote + '\u201C'; c.textContent = ref.company; d.textContent = ref.desc; }
+            }
+            function rotateCards() {
+              for (var i = 0; i < 3; i++) {
+                offsets[i] = (offsets[i] + 1) % refs.length;
+                fillCard(i + 1, refs[offsets[i]]);
+              }
+            }
+            for (var j = 0; j < 3; j++) fillCard(j + 1, refs[offsets[j]]);
+            setInterval(rotateCards, 5000);
+          })();
+        </script>
+
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="kontakt" class="py-32 px-6 bg-gray-50 relative">
-      <!-- Gradient overlay pro plynulý přechod z předchozí sekce -->
-      <div class="absolute top-0 left-0 right-0 h-40 pointer-events-none" style="background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(249,250,251,0.8) 50%, rgba(249,250,251,1) 100%);"></div>
-      <div class="container mx-auto max-w-3xl relative z-10">
-        <div class="text-center">
-          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Kontaktujte nás
-          </h2>
+    <!-- Pás log firem – školení absolvovali -->
+    <section id="kontakt" class="py-16 md:py-20 px-6 bg-gray-50 relative">
+      <div class="absolute top-0 left-0 right-0 h-32 pointer-events-none" style="background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(249,250,251,1) 100%);"></div>
+      <div class="container mx-auto max-w-6xl relative z-10">
+        <p class="text-left text-sm font-medium text-gray-500 uppercase tracking-wider mb-10">
+          Nastartovali jsme AI ve firmách
+        </p>
+        <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 opacity-70">
+          <div class="px-6 py-3 bg-gray-200/80 rounded-lg text-gray-500 font-semibold text-sm">BARENTZ</div>
+          <div class="px-6 py-3 bg-gray-200/80 rounded-lg text-gray-500 font-semibold text-sm">FESTOOL</div>
+          <div class="px-6 py-3 bg-gray-200/80 rounded-lg text-gray-500 font-semibold text-sm">VEOS POSPÍŠIL</div>
+          <div class="px-6 py-3 bg-gray-200/80 rounded-lg text-gray-500 font-semibold text-sm">NATURAMED</div>
+          <div class="px-6 py-3 bg-gray-200/80 rounded-lg text-gray-500 font-semibold text-sm">INOVAN CZ</div>
         </div>
       </div>
     </section>
@@ -270,6 +407,13 @@ import Footer from '../components/Footer.astro';
   .animate-fade-in-delay-3 {
     animation: fade-in 0.8s ease-out 0.6s both;
   }
+
+  /* Reference – barva #F05D4A a styl karet */
+  .ref-accent-bar { background-color: #F05D4A; }
+  .ref-arrow-hover:hover { color: #F05D4A !important; border-color: rgba(240,93,74,0.35) !important; }
+  .ref-dot-active { background-color: #F05D4A !important; }
+  .ref-small-card { background-color: #fff; border: 1px solid #e5e7eb; }
+  .ref-small-card-line { background-color: #F05D4A; }
 </style>
 
 <script type="application/ld+json">
